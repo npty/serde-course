@@ -1,10 +1,12 @@
-fn main() {
-    println!("To run tests for the ex. 3 use: cargo test");
-}
+use serde::{Deserialize, Serialize};
+
+fn main() {}
 
 /* Place your
  * code here */
 #[cfg_attr(test, derive(Debug, PartialEq))] // Needed for tests, can be replaced by plain derive
+#[derive(Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
 struct MobilePlan {
     call_minutes: u32,
     sms_quantity: u32,
