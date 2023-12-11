@@ -1,9 +1,9 @@
-fn main() {
-    println!("To run tests for the ex. 1 use: cargo test");
-}
+use serde::{Deserialize, Serialize};
+
+fn main() {}
 
 /* Place your code here */
-#[cfg_attr(test, derive(Debug, PartialEq))] // Needed for tests, can be replaced with plain derive
+#[cfg_attr(test, derive(Debug, PartialEq, Serialize, Deserialize))] // Needed for tests, can be replaced with plain derive
 struct Point {
     x: i32,
     y: i32,
