@@ -1,3 +1,4 @@
+use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 
 fn main() {
@@ -6,7 +7,9 @@ fn main() {
 
 /* Place your
  * code here */
+#[derive(Serialize, Deserialize)]
 #[cfg_attr(test, derive(Debug, PartialEq))] // Needed for tests, can be replaced by plain derive
+#[serde(tag = "message_type")]
 enum Message {
     Request {
         id: String,
