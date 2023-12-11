@@ -1,10 +1,12 @@
-fn main() {
-    println!("To run tests for the ex. 2 use: cargo test");
-}
+use serde::{Deserialize, Serialize};
+
+fn main() {}
 
 /* Place your
  * code here */
 #[cfg_attr(test, derive(Debug, PartialEq))] // Needed for tests, can be replaced by plain derive
+#[derive(Serialize, Deserialize)]
+#[serde(rename_all(serialize = "camelCase", deserialize = "SCREAMING-KEBAB-CASE"))]
 struct Person {
     first_name: String,
     last_name: String,
@@ -16,6 +18,8 @@ struct Person {
 /* Place your
  * code here */
 #[cfg_attr(test, derive(Debug, PartialEq))] // Needed for tests, can be replaced by plain derive
+#[derive(Serialize, Deserialize)]
+#[serde(rename_all = "PascalCase")]
 struct Cryptocurrency {
     full_name: String,
     ticker: String,
