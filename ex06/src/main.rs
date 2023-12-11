@@ -1,3 +1,5 @@
+use serde::{Deserialize, Serialize};
+
 fn main() {
     println!("To run tests for the ex. 6 use: cargo test");
 }
@@ -5,6 +7,8 @@ fn main() {
 /* Place your
  * code here */
 #[cfg_attr(test, derive(Debug, PartialEq))] // Needed for tests, can be replaced by plain derive
+#[derive(Serialize, Deserialize)]
+#[serde(tag = "type", content = "content")]
 enum Element {
     Container(Vec<Element>),
     Text(String),

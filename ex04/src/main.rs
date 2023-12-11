@@ -1,13 +1,14 @@
-fn main() {
-    println!("To run tests for the ex. 4 use: cargo test");
-}
+use serde::{Deserialize, Serialize};
+
+fn main() {}
 
 /* Place your
  * code here */
 #[cfg_attr(test, derive(Debug, PartialEq))] // Needed for tests, can be replaced by plain derive
+#[derive(Serialize, Deserialize)]
 enum ContainmentClass {
-    Safe, // Enum plain variant
-    Euclid { reason: String }, // Enum struct variant 
+    Safe,                      // Enum plain variant
+    Euclid { reason: String }, // Enum struct variant
     Keter,
     Thaumiel(u32), // Enum tuple struct variant
     Neutralized,
@@ -19,6 +20,7 @@ enum ContainmentClass {
 /* Place your
  * code here */
 #[cfg_attr(test, derive(Debug, PartialEq))] // Needed for tests, can be replaced by plain derive
+#[derive(Serialize, Deserialize)]
 struct Object {
     name: String,
     code: u32,
